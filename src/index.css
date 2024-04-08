@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.navbar-brand img {
+  height: 30px; /* Adjust height as needed */
+}
+
+.nav-link{
+  margin:20px;
+}
+nav{
+  margin-left: 20%;
+}
+/* footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  margin-left: 20px;
+} */
+
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.copyright {
+  text-align: left;
+}
+
+.social-icons {
+  text-align: right;
+}
+
+.social-icons a {
+  color: #007bff;
+  margin: 0 10px;
+}
