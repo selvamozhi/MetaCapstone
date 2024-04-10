@@ -1,38 +1,233 @@
-.App {
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Markazi Text', serif;
+}
+
+/*navigation bar containers*/
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px medium;
+}
+
+/* Media query for responsiveness */
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    margin-top: 20px;
+  }
+
+  .nav-links li {
+    margin: 0px 10px;
+  }
+}
+/*footer styles*/
+ footer {
+  background-color: #f8f9fa;
+  display: inline;
+  padding: 20px 0;
+  text-align: center;
+  
+}
+
+
+.social-icons {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.social-icons a {
+  color: #007bff;
+  margin: 0 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*Main styling*/
+.titleContainer{
+  background-color: #495e57;
+  color: #ffffff;
+  width: 100%;
+  margin: 0px;
+  height: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.caption-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: auto;
+}
+.grid {
+  display: grid;
+  width: auto;
+  height: auto;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 20px;
+}
+.grid-item {
+  margin-left: 10%;
+  margin-bottom: 1%;
+  justify-content: space-evenly;
+
+}
+.cap-title{
+  color: #f4ce14;
+  font-weight:medium;
+  font-size: 64px;
+  margin-bottom: 0%;
+  padding-bottom: 0%;
 }
 
-.App-link {
-  color: #61dafb;
+.cap-location{
+  color: #ffffff;
+  font-weight:normal;
+  font-size: 40px;
+  padding-top: 0.0em; /* Adjust this value as needed */
+  margin-top: -0.8em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title-description{
+  font-family: 'karla', serif;
+  font-size: 16px;
+  font-weight: medium;
 }
+.reserve-btn{
+  background-color: #f4ce14;
+  color: #000000;
+  outline: none;
+  border-radius: 25px;
+  width: auto;
+  padding: 10px;
+  font-weight: bold;
+}
+p.offer-caption{
+  font-size: 20px;
+  font-weight: bolder;
+  color: #000000;
+  width: 500px;
+  margin-left: 0%;
+  padding-left: 0%;
+  margin-top: 5px;
+}
+
+.online-btn{
+  margin-left:-50px;
+  margin-top: 5px;
+}
+.img-container {
+  position: absolute;
+  margin-top: 50px;
+  width: 250px;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: -10px;
+}
+
+.img-container img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  border-radius: 30px;
+}
+
+.offerContainer{
+  background-color: #ffffff;
+}
+/*Menu items styling*/
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.flex-item {
+  margin-top: 0%;
+  width: 300px;
+  height: auto;
+  background-color: #edefee;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.menu-item {
+  border-radius: 8px;
+  overflow: hidden;
+  /* margin-bottom: 20px; */
+  margin-top: 0%;
+}
+
+.menu-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px 20px 0 0; 
+  margin: 0%;
+}
+
+.menu-item-content {
+  padding: 10px;
+}
+.menu-item-titlePrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.menu-item-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.menu-item-price {
+  color:#ee9972;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.menu-item-description {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
