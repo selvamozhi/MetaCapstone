@@ -11,7 +11,7 @@ export default function Nav(){
     <li><a href="./home">HOME</a></li>
     <li><a href="./about">ABOUT</a></li>
     <li><a href="./menu">MENU</a></li>
-    <li><a href="./reservation">RESERVATION</a></li>
+    <li><a href="./booking-form">RESERVATION</a></li>
     <li><a href="./orderOnline">ORDER ONLINE</a></li>
     <li><a href="./login">LOGIN</a></li>
   </ul>

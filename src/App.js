@@ -5,13 +5,12 @@ import Footer from './Footer';
 import Header from './Header';
 import { Routes, Route} from 'react-router-dom';
 import {About,OrderOnline,Menu,Login} from './Sections';
-import Reservation from './Reservation';
+import BookingPage from './BookingForm';
 function App() {
   return (
     <>
     <Header></Header>
     <Nav></Nav>
-   
     <Routes>
       <Route path="/" element={<Main/>}/>
       <Route path="/home" element={<Main/>}/>
@@ -19,7 +18,7 @@ function App() {
       <Route path="/orderOnline" element={<OrderOnline/>}/>
       <Route path="/menu" element={<Menu/>}/>
       <Route path="/login" element={<Login/>}/>
-      <Route path="/reservation" element={<Reservation/>}/>
+      <Route path="/booking-form" element={<BookingPage/>}/>
     </Routes>
     <Footer></Footer>
     </>

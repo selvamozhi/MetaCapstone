@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 export default function Main(){
     const navigate = useNavigate()
     const handleButtonClick=()=>{
-        //window.location.href = '/reservation';
-        navigate('/reservation');
+        //window.location.href = '/booking-form';
+        navigate('/booking-form');
     }
     return<>
     <main>
@@ -48,9 +48,9 @@ export default function Main(){
             <img src={greensalad} alt="Menu Item greensalad not found"/>
             <div className="menu-item-content">
                 <div className="menu-item-titlePrice">
-                <span className="menu-item-title">title</span>
+                <span className="menu-item-title">Green Salad</span>
                 <aside>
-                    <span className="menu-item-price">$19.99</span>
+                    <span className="menu-item-price">$30.50</span>
                 </aside>
             </div>
             <div className="menu-item-description">
@@ -67,9 +67,9 @@ export default function Main(){
             <img src={Bro} alt="Menu Item Bro Images not"/>
             <div className="menu-item-content">
                 <div className="menu-item-titlePrice">
-                <span className="menu-item-title">title</span>
+                <span className="menu-item-title">Bruchetta</span>
                 <aside>
-                    <span className="menu-item-price">$19.99</span>
+                    <span className="menu-item-price">$18.00</span>
                 </aside>
             </div>
             <div className="menu-item-description">
@@ -86,9 +86,9 @@ export default function Main(){
             <img src={lemondessert} alt="Menu Item Imagess"/>
             <div className="menu-item-content">
                 <div className="menu-item-titlePrice">
-                <span className="menu-item-title">title</span>
+                <span className="menu-item-title">Lemon Dessert</span>
                 <aside>
-                    <span className="menu-item-price">$19.99</span>
+                    <span className="menu-item-price">$20.00</span>
                 </aside>
             </div>
             <div className="menu-item-description">

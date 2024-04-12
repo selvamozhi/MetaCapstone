@@ -4,7 +4,7 @@ export default function Footer(){
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <p class="copyright">&copy; 2024 Your Company. All rights reserved.</p>
+                    <p class="copyright">&copy; 2024 littleLemon Restaurant. All rights reserved.</p>
                 </div>
                 <div class="col-lg-6">
                     <div class="social-icons">
