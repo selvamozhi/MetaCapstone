@@ -4,7 +4,13 @@ import greensalad from "./icons_assets/greek salad.jpg";
 import Bro from "./icons_assets/bruchetta.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMotorcycle } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
 export default function Main(){
+    const navigate = useNavigate()
+    const handleButtonClick=()=>{
+        //window.location.href = '/reservation';
+        navigate('/reservation');
+    }
     return<>
     <main>
     <div className="titleContainer">
@@ -14,11 +20,11 @@ export default function Main(){
                     <p className="cap-title">Little Lemon</p>
                     <p className="cap-location">chicago</p>
                     <p className="title-description">Little lemon Restaurant is fashioned after the green rooms in theaters and studios where performers relax when they are not on stage or camera. Everyone is a star at The Green Room with our immersive cocktail experiences, VIP service and the best views of the city.</p>
-                    <button className="reserve-btn">Reserve a Table</button>
+                    <button className="reserve-btn" onClick={handleButtonClick}>Reserve a Table</button>
                     </div>
                 <div class="grid-item">
                     <div className="img-container">
-                    <img src={mainImg} alt="errornot found"/>
+                    <img src={mainImg} alt="error not found"/>
                     </div>
                 </div>
             </div>
@@ -58,7 +64,7 @@ export default function Main(){
         </div>
         <div class="flex-item">
         <div className="menu-item">
-            <img src={Bro} alt="Menu Item Bro Images not found"/>
+            <img src={Bro} alt="Menu Item Bro Images not"/>
             <div className="menu-item-content">
                 <div className="menu-item-titlePrice">
                 <span className="menu-item-title">title</span>
@@ -86,7 +92,7 @@ export default function Main(){
                 </aside>
             </div>
             <div className="menu-item-description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing. Nullam in arcu eu felis gravida posuere.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu eu felis gravida posuere.</p>
             </div>
             <div className="menu-item-delivery">
                 <p>Order a delivery &nbsp; <FontAwesomeIcon icon={faMotorcycle} /></p>

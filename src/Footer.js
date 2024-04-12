@@ -9,9 +9,9 @@ export default function Footer(){
                 <div class="col-lg-6">
                     <div class="social-icons">
          
-                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noreferrer"><i class="fab fa-facebook"></i></a>
          
-                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noreferrer"><i class="fab fa-instagram"></i></a>
       
                         <a href="mailto:query.littleLemon@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
