@@ -1,106 +1,42 @@
-import lemondessert from "./icons_assets/lemon dessert.jpg";
-import mainImg from './icons_assets/restauranfood.jpg';
-import greensalad from "./icons_assets/greek salad.jpg";
-import Bro from "./icons_assets/bruchetta.svg";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMotorcycle } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from "react-router-dom";
-export default function Main(){
-    const navigate = useNavigate()
-    const handleButtonClick=()=>{
-        //window.location.href = '/booking-form';
-        navigate('/booking-form');
-    }
-    return<>
-    <main>
-    <div className="titleContainer">
-        <div class="caption-container">
-            <div class="grid">
-                <div class="grid-item">
-                    <p className="cap-title">Little Lemon</p>
-                    <p className="cap-location">chicago</p>
-                    <p className="title-description">Little lemon Restaurant is fashioned after the green rooms in theaters and studios where performers relax when they are not on stage or camera. Everyone is a star at The Green Room with our immersive cocktail experiences, VIP service and the best views of the city.</p>
-                    <button className="reserve-btn" onClick={handleButtonClick}>Reserve a Table</button>
-                    </div>
-                <div class="grid-item">
-                    <div className="img-container">
-                    <img src={mainImg} alt="error not found"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div className="titleContainer offerContainer">
-        <div class="caption-container">
-            <div class="grid">
-                <div class="grid-item">
-                    <p className="offer-caption">This Week Specials!!</p>
-                </div>
-                <div class="button-grid-item">
-                    <button className="reserve-btn online-btn">Order Online</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div className="flex-container">
-        <div className="flex-item">
-        <div className="menu-item">
-            <img src={greensalad} alt="Menu Item greensalad not found"/>
-            <div className="menu-item-content">
-                <div className="menu-item-titlePrice">
-                <span className="menu-item-title">Green Salad</span>
-                <aside>
-                    <span className="menu-item-price">$30.50</span>
-                </aside>
-            </div>
-            <div className="menu-item-description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu eu felis gravida posuere.</p>
-            </div>
-            <div className="menu-item-delivery">
-                <p>Order a delivery &nbsp; <FontAwesomeIcon icon={faMotorcycle} /></p>
-            </div>
-            </div>
-        </div>
-        </div>
-        <div class="flex-item">
-        <div className="menu-item">
-            <img src={Bro} alt="Menu Item Bro Images not"/>
-            <div className="menu-item-content">
-                <div className="menu-item-titlePrice">
-                <span className="menu-item-title">Bruchetta</span>
-                <aside>
-                    <span className="menu-item-price">$18.00</span>
-                </aside>
-            </div>
-            <div className="menu-item-description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu eu felis gravida posuere.</p>
-            </div>
-            <div className="menu-item-delivery">
-                <p>Order a delivery &nbsp; <FontAwesomeIcon icon={faMotorcycle} /></p>
-            </div>
-            </div>
-        </div>
-        </div>
-        <div class="flex-item">
-        <div className="menu-item">
-            <img src={lemondessert} alt="Menu Item Imagess"/>
-            <div className="menu-item-content">
-                <div className="menu-item-titlePrice">
-                <span className="menu-item-title">Lemon Dessert</span>
-                <aside>
-                    <span className="menu-item-price">$20.00</span>
-                </aside>
-            </div>
-            <div className="menu-item-description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu eu felis gravida posuere.</p>
-            </div>
-            <div className="menu-item-delivery">
-                <p>Order a delivery &nbsp; <FontAwesomeIcon icon={faMotorcycle} /></p>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    </main>
-    </>
+import './App.css';
+import HomePage from './HomePage';
+import Nav from './Nav';
+import Footer from './Footer';
+import Header from './Header';
+import { Routes, Route} from 'react-router-dom';
+import {About,OrderOnline,Menu,Login} from './Sections';
+import { useReducer } from 'react';
+import BookingPage from './BookingForm';
+const initializeTimes={
+  availableTimes:["17:00","18:00","19:00","20:00","21:00","22:00"]
+};
+const updateTimes=(state,action)=>{
+  console.log(action);
+  console.log(state)
+    return state;
 }
+function App() {
+
+    //const [availableTimes,updateTime]=useState(["17:00","18:00","19:00","20:00","21:00","22:00"])
+    //updateTime(availableTimes);
+    const[state,dispatch]=useReducer(updateTimes,initializeTimes);
+
+  return (
+    <>
+    <Header></Header>
+    <Nav></Nav>
+    <Routes>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path="/home" element={<HomePage/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/orderOnline" element={<OrderOnline/>}/>
+      <Route path="/menu" element={<Menu/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/booking-form" element={<BookingPage state={state} dispatch={dispatch}/>}/>
+    </Routes>
+    <Footer></Footer>
+    </>
+  );
+}
+
+export default App;
