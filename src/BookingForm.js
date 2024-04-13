@@ -72,7 +72,7 @@ export default function BookingPage() {
             </div>
           </div>
           <div className="card-footer">
-            <button type="submit" className="btn btn-warning" onClick={handleSubmit}>
+            <button type="submit" className="reserve-btn" onClick={handleSubmit}>
               Make Your reservation
             </button>
           </div>

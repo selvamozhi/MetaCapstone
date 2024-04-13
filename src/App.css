@@ -151,6 +151,9 @@ body {
   border: none;
   margin-bottom: 10px;
 }
+.reserve-btn:hover{
+background-color: #EE9972;
+}
 p.offer-caption{
   font-size: 20px;
   font-weight: bolder;
