@@ -10,10 +10,6 @@ export default function Header(){
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;700&display=swap"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&display=swap"/>
     <title><img src={logo} alt="unavailable"/></title>
-    <meta property="description" content="Little Lemon restaurant provides online service and booking facilities where it provide quick access to food and Enjoy your joy in food."/>
-    <meta property="og:title" content="Little Lemon Restaurant"/>
-    <meta property="og:description" content="Little Lemon restaurant provides online service and booking facilities where it provide quick access to food and Enjoy your joy in food."/>
-    <meta property="og:image" content={logo}/>
     </head>
     </>)
 }

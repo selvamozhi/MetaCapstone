@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
 export default function BookingPage({state,dispatch}) {
     const occasions=["Birthday","Anniversary","Team Lunch","Cooperate Meeting","Get-together"];
@@ -10,6 +10,7 @@ export default function BookingPage({state,dispatch}) {
         occasion:""
     });
     const handleChange=(e)=>{
+      e.preventDefault();
        if(e.target.name==="occasion"){
         setIsOptionDisabled(true);
        }

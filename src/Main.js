@@ -15,13 +15,13 @@ const updateTimes=(state,action)=>{
   console.log(state)
     return state;
 }
-function App() {
+function Main() {
 
     //const [availableTimes,updateTime]=useState(["17:00","18:00","19:00","20:00","21:00","22:00"])
     //updateTime(availableTimes);
     const[state,dispatch]=useReducer(updateTimes,initializeTimes);
 
-  return (
+    return (
     <>
     <Header></Header>
     <Nav></Nav>
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;
