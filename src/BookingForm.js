@@ -32,6 +32,7 @@ export default function BookingPage({state,dispatch}) {
         occasion:""
        })
        setIsOptionDisabled(false);
+       dispatch({date:BookingformData.bookingDate})
     }
   return (
     <>
@@ -47,7 +48,7 @@ export default function BookingPage({state,dispatch}) {
             <div className="form-group">
               <label htmlFor="bookingTime">Choose time</label>
               <select className="form-control" id="bookingTime" name="bookingTime" onChange={handleChange} value={BookingformData.bookingTime}  aria-labelledby="bookingTime" aria-required="true">
-                {state.availableTimes.map((option,index)=><option value={option} key={index}>{option}</option>)}
+                {state.map((option,index)=><option value={option} key={index}>{option}</option>)}
               </select>
             </div>
 
