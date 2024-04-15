@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
-export default function BookingPage({state,dispatch}) {
+export default function BookingPage({state,dispatch,submitForm}) {
     const occasions=["Birthday","Anniversary","Team Lunch","Cooperate Meeting","Get-together"];
     const [isOptionDisabled, setIsOptionDisabled] = useState(false);
     const [BookingformData,setBookingFormData]=useState({
@@ -25,6 +25,8 @@ export default function BookingPage({state,dispatch}) {
     const handleSubmit=(e)=>{
        e.preventDefault();
        console.log("while submiting",BookingformData)
+       submitForm(BookingformData);
+       dispatch({date:BookingformData.bookingDate})
        setBookingFormData({
         bookingDate:"",
         bookingTime:"",
@@ -32,7 +34,6 @@ export default function BookingPage({state,dispatch}) {
         occasion:""
        })
        setIsOptionDisabled(false);
-       dispatch({date:BookingformData.bookingDate})
     }
   return (
     <>

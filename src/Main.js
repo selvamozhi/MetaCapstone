@@ -3,15 +3,15 @@ import HomePage from './HomePage';
 import Nav from './Nav';
 import Footer from './Footer';
 import Header from './Header';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route,useNavigate} from 'react-router-dom';
 import {About,OrderOnline,Menu,Login} from './Sections';
 import { useReducer,useEffect } from 'react';
 import BookingPage from './BookingForm';
-
+import ConfirmedBooking from './ConfirmedBooking';
 
 const seededGenerator = (timeArray) => {
   const subset = [];
-  const numElements = Math.floor(Math.random() * (timeArray.length + 1)); // Random number of elements between 0 and timeArray.length
+  const numElements = Math.floor(Math.random() * (timeArray.length + 1)); // Random number of elements 
 
   for (let i = 0; i < numElements; i++) {
     const randomIndex = Math.floor(Math.random() * timeArray.length); // Random index within timeArray
@@ -50,8 +50,12 @@ const fakeAPI = {
 
 function Main() {
 
+  //using Local Storage to get current date
+  const currentDate = new Date();
+  const dateString = currentDate.toISOString();
+  localStorage.setItem('currentDate', dateString);
     //const [availableTimes,updateTime]=useState(["17:00","18:00","19:00","20:00","21:00","22:00"])
-    //updateTime(availableTimes);
+
     useEffect(()=>{
       initializeTimes();
     })
@@ -69,9 +73,13 @@ function Main() {
     };
     const fetchData=()=>{
       try {
-        const today = new Date();
+        //using date from local storage
+        const savedDateString = localStorage.getItem('currentDate');
+        const savedDate = new Date(savedDateString);
+        
         // eslint-disable-next-line
-        const availableTimes = fetchAPI(today);
+        const availableTimes = fetchAPI(savedDate);
+
         return availableTimes;
       } catch (error) {
         console.error('Error initializing times:', error);
@@ -79,8 +87,14 @@ function Main() {
     }
 
     const[state,dispatch]=useReducer(updateTimes,[],initializeTimes);
-    console.log("state:",state);
-    
+    const Navigate=useNavigate();
+    const submitForm=(formData)=>{
+      console.log("data received from bookform component",formData);
+      const status=submitAPI(formData);
+      if(status){
+        Navigate('/booking-form/confirm-booking');
+      }
+    }
     return (
     <>
     <Header></Header>
@@ -92,7 +106,8 @@ function Main() {
       <Route path="/orderOnline" element={<OrderOnline/>}/>
       <Route path="/menu" element={<Menu/>}/>
       <Route path="/login" element={<Login/>}/>
-      <Route path="/booking-form" element={<BookingPage state={state} dispatch={dispatch}/>}/>
+      <Route path="/booking-form" element={<BookingPage state={state} dispatch={dispatch} submitForm={submitForm}/>}/>
+      <Route path="/booking-form/confirm-booking" element={<ConfirmedBooking/>}/>
     </Routes>
     <Footer></Footer>
     </>
