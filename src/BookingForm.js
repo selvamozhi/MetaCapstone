@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
-export default function BookingPage({state,dispatch,submitForm}) {
+export default function BookingPage({availableTimes,dispatch,submitForm}) {
     const occasions=["Birthday","Anniversary","Team Lunch","Cooperate Meeting","Get-together"];
     const [isOptionDisabled, setIsOptionDisabled] = useState(false);
     const [BookingformData,setBookingFormData]=useState({
@@ -49,7 +49,7 @@ export default function BookingPage({state,dispatch,submitForm}) {
             <div className="form-group">
               <label htmlFor="bookingTime">Choose time</label>
               <select className="form-control" id="bookingTime" name="bookingTime" onChange={handleChange} value={BookingformData.bookingTime}  aria-labelledby="bookingTime" aria-required="true">
-                {state.map((option,index)=><option value={option} key={index}>{option}</option>)}
+                {availableTimes.map((option,index)=><option value={option} key={index}>{option}</option>)}
               </select>
             </div>
 
