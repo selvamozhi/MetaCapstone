@@ -3,11 +3,11 @@ import "./App.css"
 import logo from "./icons_assets/Logo.svg";
 export default function Nav(){
     return <>
-  <div class="container">
-  <div class="navbar-brand">
+  <div className="container">
+  <div className="navbar-brand">
     <img src={logo} alt="unable to find images"/>
   </div>
-  <ul class="nav-links">
+  <ul className="nav-links">
     <li><a href="./home">HOME</a></li>
     <li><a href="./about">ABOUT</a></li>
     <li><a href="./menu">MENU</a></li>

@@ -25,7 +25,7 @@ const fetchAPI = (date) => {
   const timeArray = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
   
   var randomSubset = seededGenerator(timeArray);
-  while(randomSubset.count===0){
+  while(randomSubset.length===0){
     randomSubset= seededGenerator(timeArray);
   }
   const uniqueTimeArray = randomSubset.filter((value, index, self) => self.indexOf(value) === index);
@@ -86,7 +86,7 @@ function Main() {
       }
     }
 
-    const[state,dispatch]=useReducer(updateTimes,[],initializeTimes);
+    const[availableTimes,dispatch]=useReducer(updateTimes,[],initializeTimes);
     const Navigate=useNavigate();
     const submitForm=(formData)=>{
       console.log("data received from bookform component",formData);
@@ -106,7 +106,7 @@ function Main() {
       <Route path="/orderOnline" element={<OrderOnline/>}/>
       <Route path="/menu" element={<Menu/>}/>
       <Route path="/login" element={<Login/>}/>
-      <Route path="/booking-form" element={<BookingPage state={state} dispatch={dispatch} submitForm={submitForm}/>}/>
+      <Route path="/booking-form" element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm}/>}/>
       <Route path="/booking-form/confirm-booking" element={<ConfirmedBooking/>}/>
     </Routes>
     <Footer></Footer>
