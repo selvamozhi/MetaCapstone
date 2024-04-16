@@ -319,3 +319,16 @@
     padding-top: 1dvh;
     padding-bottom: 10vh;
   }
+
+  .error-message{
+    color:red;
+  }
+
+  input:focus:invalid{
+    border: 2px solid red;
+  }
+  .reserve-btn:disabled{
+    background-color: antiquewhite;
+    
+
+  }
