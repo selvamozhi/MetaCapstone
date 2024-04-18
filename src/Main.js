@@ -57,16 +57,23 @@ function Main() {
     //const [availableTimes,updateTime]=useState(["17:00","18:00","19:00","20:00","21:00","22:00"])
 
     useEffect(()=>{
-      initializeTimes();
+      try{
+        initializeTimes();
+      }
+      catch(err){
+        console.log("Error while initiating",err)
+      }
     })
 
     const initializeTimes = () => {
-      // Initial logic to fetch available times
-      // const initialAvailableTimes =["17:00","18:00","19:00","20:00","21:00","22:00"]; // You can replace this with your logic to fetch initial available times
-      // return initialAvailableTimes;
-
-      //from API
-     return fetchData();
+      var res;
+      try{
+        res=fetchData();
+      }
+      catch(err){
+        console.log("Error calling fetchData",err);
+      }
+     return res;
     };
     const updateTimes = (state,action) => {
       return fetchData();
@@ -89,7 +96,6 @@ function Main() {
     const[availableTimes,dispatch]=useReducer(updateTimes,[],initializeTimes);
     const Navigate=useNavigate();
     const submitForm=(formData)=>{
-      console.log("data received from bookform component",formData);
       const status=submitAPI(formData);
       if(status){
         Navigate('/confirm-booking');

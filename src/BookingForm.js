@@ -7,13 +7,6 @@ export default function BookingPage({availableTimes,dispatch,submitForm}) {
     const occasions=["Birthday","Anniversary","Team Lunch","Cooperate Meeting","Get-together"];
     const [isOptionDisabled, setIsOptionDisabled] = useState(false);
 
-  //   const handleSubmit=(e)=>{
-  //     e.preventDefault();
-  //     submitForm(formik.values);
-  //     dispatch({date:formik.values.bookingDate})
-  //     formik.resetForm();
-  //     setIsOptionDisabled(false);
-  //  }
     const formik = useFormik({
       initialValues: {
         bookingDate:"",
@@ -51,15 +44,14 @@ export default function BookingPage({availableTimes,dispatch,submitForm}) {
           <h4 className="card-header">Book Now</h4>
           <form onSubmit={formik.handleSubmit}>
           <div className="card-body">
-         
           <div className="form-group">
               <label htmlFor="bookingDate">Choose Date</label>
-              <input type="date" className="form-control" id="bookingDate" name="bookingDate" {...formik.getFieldProps("bookingDate")} aria-labelledby="BookingDate" aria-required="true" required/>
+              <input type="date" className="form-control" data-testid="bookingDate" id="bookingDate" name="bookingDate" {...formik.getFieldProps("bookingDate")} aria-labelledby="bookingDate" aria-required="true" required/>
               <h6 className='error-message'>{formik.touched.bookingDate && formik.errors.bookingDate? formik.errors.bookingDate:null}</h6>
           </div>
           <div className="form-group">
               <label htmlFor="bookingTime">Choose time</label>
-              <select className="form-control" id="bookingTime" name="bookingTime" {...formik.getFieldProps("bookingTime")}  aria-labelledby="bookingTime" aria-required="true" required>
+              <select className="form-control" data-testid="bookingTime" id="bookingTime" name="bookingTime" {...formik.getFieldProps("bookingTime")}  aria-labelledby="bookingTime" aria-required="true" required>
                 {availableTimes.map((option,index)=><option value={option} key={index}>{option}</option>)}
               </select>
               <h6 className='error-message'>{formik.touched.bookingTime && formik.errors.bookingTime?formik.errors.bookingTime:null}</h6>
@@ -70,6 +62,7 @@ export default function BookingPage({availableTimes,dispatch,submitForm}) {
                 type="number"
                 className="form-control"
                 id="noOfGuest"
+                data-testid="noOfGuest"
                 name='noOfGuest'
                 placeholder="1"
                 min={1}
@@ -83,7 +76,7 @@ export default function BookingPage({availableTimes,dispatch,submitForm}) {
             </div>
             <div className="form-group">
               <label htmlFor="occasion">Occasion</label>
-              <select className="form-control" id="occasion" name='occasion'{...formik.getFieldProps("occasion")} aria-labelledby="occasion" aria-required="true" required onFocus={handleChange}>
+              <select className="form-control" id="occasion" data-testid="occasion" name='occasion'{...formik.getFieldProps("occasion")} aria-labelledby="occasion" aria-required="true" required onFocus={handleChange}>
                 <option disabled={isOptionDisabled}>Select...</option>
                 {occasions.map((occasion,index)=><option value={occasion} key={index}>{occasion}</option>)}
               </select>
@@ -92,7 +85,7 @@ export default function BookingPage({availableTimes,dispatch,submitForm}) {
               
           </div>
           <div className="card-footer">
-            <button type="submit" className="reserve-btn"  disabled={!formik.isValid || !isAnyFieldTouched()}>
+            <button type="submit" className="reserve-btn" data-testid="submit-button" disabled={!formik.isValid || !isAnyFieldTouched()}>
               Make Your reservation
             </button>
           </div>
