@@ -21,7 +21,7 @@ export default function HomePage(){
                     <p className="cap-title">Little Lemon</p>
                     <p className="cap-location">chicago</p>
                     <p className="title-description">Little lemon Restaurant is fashioned after the green rooms in theaters and studios where performers relax when they are not on stage or camera. Everyone is a star at The Green Room with our immersive cocktail experiences, VIP service and the best views of the city.</p>
-                    <button className="reserve-btn" onClick={handleButtonClick}>Reserve a Table</button>
+                    <button className="reserve-btn" onClick={handleButtonClick} aria-label="On Click">Reserve a Table</button>
                     </div>
                 <div className="grid-item">
                     <div className="img-container">
@@ -38,7 +38,7 @@ export default function HomePage(){
                     <p className="offer-caption">This Week Specials!!</p>
                 </div>
                 <div className="button-grid-item">
-                    <button className="reserve-btn online-btn">Order Online</button>
+                    <button className="reserve-btn online-btn" aria-label="On Click">Order Online</button>
                 </div>
             </div>
         </div>

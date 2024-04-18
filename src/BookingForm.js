@@ -85,7 +85,7 @@ export default function BookingPage({availableTimes,dispatch,submitForm}) {
               
           </div>
           <div className="card-footer">
-            <button type="submit" className="reserve-btn" data-testid="submit-button" disabled={!formik.isValid || !isAnyFieldTouched()}>
+            <button type="submit" className="reserve-btn" aria-label="On Click" data-testid="submit-button" disabled={!formik.isValid || !isAnyFieldTouched()}>
               Make Your reservation
             </button>
           </div>
